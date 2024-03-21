@@ -1,3 +1,4 @@
+
 # LISTS
 # Creating and Initializing Lists
 #a list in python is a collection of data surrounded by []
@@ -574,4 +575,332 @@ toppings = ["sprinkles", "chocolate syrup", "whipped cream", "cherry"]
 for flavor in flavors:
     for topping in toppings:
         print("Let's try a scoop of " + flavor + " with some " + topping + " on top!")
+
+# break, continue, pass
+
+# break stops a loop from running
+flavors = ["chocolate", "vanilla", "mint chocolate chip", "strawberry", "pistachio" ]
+for flavor in flavors: 
+    if flavor == "mint chocolate chip":
+        print("trying " + flavor + " flavor.")
+        print("favorite ice cream " + flavor + " flavor. We wont taste further.")     
+        break # stop our loop here   
+     
+    print("trying " + flavor + " flavor.")
+else:
+    print("oh darn no mint chocolate chip")
+    
+
+# continue -> continue or skip over an iteration
+flavors = ["chocolate", "vanilla", "mint chocolate chip", "pistachio", "strawberry"  ]
+for flavor in flavors:
+    if flavor == "vanilla" or flavor == "pistachio":
+        continue #skips over that iteration
+    print("Enjoying a scoop of " + flavor)
+
+
+grades = [100, 97, 65, 54, 34, 50, 76, 86, 20]
+# loop through the list of grades, if the grade is below 60
+# print YOU FAILED
+# if its a passign grade do nothing
+
+for grade in grades:
+    if grade >= 60:
+        continue
+    else:
+        print(grade, "You failed")
+
+# pass is a placeholder so we dont have to finish what we started
+flavors = ["chocolate", "vanilla", "mint chocolate chip", "pistachio", "strawberry"  ]
+for flavor in flavors:
+    pass
+
+for flavor in flavors:
+    if flavor == "vanilla":
+        pass
+    print(flavor)
+
+# looping with range(len) --> loop through a list by index
+#              0             1            2                     3           4 
+flavors = ["chocolate", "vanilla", "mint chocolate chip", "pistachio", "strawberry"]
+
+flavors_length = len(flavors)
+print(flavors_length)
+print(range(flavors_length))
+
+# for i in range(len(flavors))
+for i in range(flavors_length):
+    print(i)
+
+
+
+# use the i iterator as an index for our list
+# we can grab values by index and also access that index
+for i in range(len(flavors)):
+    print(flavors[i], "is at index ", i)
+
+# 3 lists of equal length and we want to grab information from each list
+# the value at each position in each list relates to each other
+#                0       1         2         3
+booth_types = ["Food", "Games", "Music", "Crafts"]
+#                  0            1           2            3
+schedule_times = ["10:00 AM", "1:00 PM", "3:00 PM", "5:00 PM"]
+#                0       1             2               3
+items_needed = ["Grill", "Tickets", "Instruments", "Paint"]
+
+for i in range(len(booth_types)):
+    booth = booth_types[i]
+    time = schedule_times[i]
+    item = items_needed[i]
+    print(f"{booth} booth needs {item} at {time}")
+
+# print(booth_types[1])
+    
+# length = len(booth_types)
+# print(length)
+# print(type(length))
+
+# print(range(length))
+# for num in range(length):
+#     print(num)
+
+# my_num = 4
+
+# print(len(my_num))
+
+# my_name = "Krillin is cool and a nice guy"
+# print(len(my_name))
+
+# krillin_list = my_name.split()
+# print(krillin_list)
+# print(len(krillin_list))
+
+# for word in krillin_list:
+#     print(len(word))
+    
+
+
+
+"""
+**Problem Statement**:
+You are developing a simple checkout system for a grocery store. 
+The system should calculate the total cost of the items in a shopping cart.
+
+Here are the tasks you need to perform:
+
+1. You have a list of item prices representing a shopping cart.
+2. Use a for loop to iterate through the list of prices.
+3. Calculate the total cost by adding up the prices of all the items.
+4. Print the total cost at the end.
+
+🎥**Hint**:
+Initialize a variable to keep track of the total cost before the loop. Add each item's price to this variable as you iterate through the list.
+
+🎥**Solution
+# List of item prices in the shopping cart
+item_prices = [2.99, 5.49, 3.25, 13.99, 4.75]
+
+"""
+
+# sum()
+# gives you a sum of all numbers in a list
+my_nums = [1, 2, 3, 4, 5]
+print(sum(my_nums))
+    
+        
+item_prices = [2.99, 5.49, 3.25, 13.99, 4.75]
+# for iterator variable in keyword thing we loop through
+for price in item_prices:
+    print(f"the current price: {price}")
+
+total_price = 0
+for price in item_prices:
+    print(total_price)
+    total_price += price # total_price = total_price + price
+    print(f"current total: {total_price}")
+print(f"Total Price: ${total_price}")
+
+
+# accesing lists within lists
+#                  0            1               2            3             4
+inventory = [["Apples", 5],["Bananas", 2],["Oranges", 0],["Milk", 1],["Eggs", 12]]
+#                 0      1      0       1     0        1     0    1     0      1
+print(inventory)
+
+first_item = inventory[0]
+print(first_item)
+# first_item = ["Apples", 5]
+print(first_item[0])
+
+apples = inventory[0][0]
+print(apples)
+oranges = inventory[2][0]
+print(oranges)
+bananas = inventory[1][0]
+
+
+apples_inventory = ["Apples", 5]
+name, quantity = apples_inventory
+reorder_threshold = 10
+for item in inventory:
+    #                 ["Apples", 5]
+    name, quantity = item
+    print(name, quantity)
+    if quantity < reorder_threshold:
+        print(f"{name} needs to be reordered!")
+
+
+# while loops in python
+# while loops will run as long as we let them
+# condition_is_true = True
+# while condition_is_true:
+#     pass
+# catching marshmallows
+marshmallows = 0
+while marshmallows < 5: #while loop will break when the marshmallow variable is >= 5
+    marshmallows += 1 # marshmallows = marshmallows + 1
+    print(f"You have caught {marshmallows} in your mouth!")
+
+
+# Swap incrementation with the print
+marshmallows = 0
+while marshmallows < 5: #while loop will break when the marshmallow variable is >= 5    
+    print(f"You have caught {marshmallows} in your mouth!")
+    marshmallows += 1 # marshmallows = marshmallows + 1
+    #starts with zero becuase we print before we havea chance
+    # to increment our variable
+
+
+# Be careful with your conditions
+# because sometimes you can prevent your while loop from ever running
+temperature = 100
+# set up a while loop with a condition that is never true
+while temperature < 0:
+    #this block of code never runs, because our temperature
+    # is greater than 0
+    temperature -= 1
+    print(f"The temperature is now {temperature}") 
+
+# check a user input and breaking depending on what is entered
+# while True:
+#     user_input = input("Say 'stop' to end the refill. ")
+#     if user_input == "stop":
+#         print("Enjoy your coffee")
+#         break
+#     else:
+#         print("Here's some more coffee")
+
+# adding a to a list with a while loop
+# shopping_cart = []
+# while True:
+#     user_input = input("What would you like to add to your cart? Say 'quit' to quit.")
+#     if user_input != 'quit':
+#         shopping_cart.append(user_input)
+#         print(f"You've added {user_input} to your cart!")
+#     else:
+#         if shopping_cart == []:
+#             print("Your cart is empty, get out of my store!")
+#             break
+            
+#         else:
+#             print(f"Thanks for shopping, have a great day! Here are your items {shopping_cart}")
+#             break
+    
+
+# shopping_cart = [] <-- this is the list we're adding to!
+# shopping_cart.append("milk")
+# print(shopping_cart)
+# shopping_cart.append('peanut butter cups')
+# print(shopping_cart)
+        
+# list comprehension 
+numbers = [2,3, 4,5, 6, 7, 8, 9, 10]
+squared_nums = []
+
+for num in numbers:
+    if num % 2 == 0:
+        squared_nums.append(num**2)
+print(squared_nums)
+
+#-----list comprehension syntax---------#
+#new_list = [transform for iterator varaible in original condition ]
+#              append   for loop syntax     conditional
+square_nums = [num**2 for num in numbers if num % 2 == 0]
+print(square_nums)
+
+names = ["Karisma", "Mary", "Daniel", "Alexa", "Jose", "Alberto"]
+
+a_names = [name for name in names if name[0] == "A" and name[-1] == "o"]
+print(a_names)
+print(names[1])
+name = "Charmander"
+print(name[0])
+
+another_names = []
+for name in names:
+    if name[0] == "A":
+        another_names.append(name)
+
+
+# python random module
+# from random import randint, choice, shuffle
+import random
+
+# roll a dice 10 times
+for die in range(10):
+    dice_roll = random.randint(1, 1000)
+    print(f"You rolled a {dice_roll}!" )    
+
+pokemon = ["Squirtle", "Bulbasaur", "Charmander"]
+print(random.choice(pokemon))
+
+# rps = ["rock", "paper", "scissors", "fire", "water balloon"]
+# print(random.choice(rps))
+# player_score = 0
+# while True:
+#     user_input = ("Enter rock, paper, scissors, fire, or water balloon. Say 'quit' to quit!")
+#     if user_input == "rock" and random.choice(rps) == "scissors":
+#         print("YAY you beat the computer")
+#         player_score += 1
+#         break
+    
+# random.shuffle()
+playlist = ["Jeremy Zucker - ok", "Holy Diver by Dio", "Lazy Nina by Greg Phillinganes", "My Sacrifice Creed", "Times Like These- Foo Fighters", "Whats Up Four Non Blondes" ]
+random.shuffle(playlist)
+for song in playlist:
+    print(song)
+
+# import math
+
+# print(math.pi)
+
+# print(math.ceil(3.2))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
 
